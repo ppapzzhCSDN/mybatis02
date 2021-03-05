@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.dao.GoodsDao">
+    <insert id="insert" useGeneratedKeys="true" keyColumn="g_id" keyProperty="goodId">
+        insert into goods (g_name, g_price, g_stock) values (#{goodName}, #{goodPrice}, #{goodStock})
+    </insert>
+    <delete id="delete" parameterType="int">
+        delete from goods where g_id=#{goodId}
+    </delete>
+    <update id="update" parameterType="com.entity.Goods">
+        update goods set g_name=#{goodName}, g_price=#{goodPrice}, g_stock=#{goodStock} where g_id=#{goodId}
+    </update>
+    <select id="findAll" resultType="com.entity.Goods">
+        <!--select-->
+        <!--g_id as goodId,-->
+        <!--g_name as goodName-->
+        <!--from goods-->
+        select
+        *
+        from goods
+    </select>
+
+</mapper>
